@@ -47,6 +47,8 @@ base_status_t bsp_gyro_accel_get(mpu9250_scaled_data_t *accel_scaled, mpu9250_sc
 
   memcpy(accel_scaled, &m_mpu9250.accel.scaled_data, sizeof(m_mpu9250.accel.scaled_data));
   memcpy(gyro_scaled, &m_mpu9250.gyro.scaled_data, sizeof(m_mpu9250.gyro.scaled_data));
+
+  return BS_OK;
 }
 
 /* Private function definitions ---------------------------------------- */

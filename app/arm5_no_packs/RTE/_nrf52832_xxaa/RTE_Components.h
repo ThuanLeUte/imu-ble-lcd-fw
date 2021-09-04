@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'ble_oxymeter' 
+ * Project: 'ble_imu' 
  * Target:  'nrf52832_xxaa' 
  */
 

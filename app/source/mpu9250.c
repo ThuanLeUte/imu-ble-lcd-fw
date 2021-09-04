@@ -206,7 +206,7 @@ base_status_t mpu9250_get_gyro_raw_data(mpu9250_t *me)
 
   CHECK_STATUS(m_mpu9250_read_reg(me, MPU9250_REG_INT_STATUS, &status, 1));
 
- // if ((status && 0x01))
+//  if ((status && 0x01))
   {
     CHECK_STATUS(m_mpu9250_read_reg(me, MPU9250_REG_GYRO_XOUT_H, buffer, 6));
 
@@ -214,10 +214,10 @@ base_status_t mpu9250_get_gyro_raw_data(mpu9250_t *me)
     me->gyro.raw_data.y = ((buffer[2] << 8) + buffer[3]);
     me->gyro.raw_data.z = ((buffer[4] << 8) + buffer[5]);
   }
- // else
-  {
-   // return BS_ERROR;
-  }
+//  else
+  // {
+  //  return BS_ERROR;
+  // }
 
   return BS_OK;
 }
@@ -284,6 +284,5 @@ static base_status_t m_mpu9250_write_reg(mpu9250_t *me, uint8_t reg, uint8_t *p_
 
   return BS_OK;
 }
-
 
 /* End of file -------------------------------------------------------- */
