@@ -155,6 +155,17 @@ typedef struct
   accel;
 
 /**
+ * @brief mag structure
+ */
+  struct
+  {
+    mpu9250_scaled_data_t scaled_data;
+    mpu9250_raw_data_t raw_data;
+    float scale_factor;
+  }
+  mag;
+
+/**
  * @brief Gyro structure
  */
   struct

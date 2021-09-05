@@ -31,6 +31,24 @@
 #define MPU9250_REG_FIFO_COUNTH       (0x72)
 #define MPU9250_REG_FIFO_R_W          (0x74)
 
+// Mag (AK8963) Register Map
+#define AK8963_WIA                    (0x00)   // Device ID - (0x48)
+#define AK8963_INFO                   (0x01)   // Information
+#define AK8963_ST1                    (0x02)   // Data Status 1
+#define AK8963_HXL                    (0x03)   // X-axis L
+#define AK8963_HXH                    (0x04)   // X-axis H
+#define AK8963_HYL                    (0x05)   // Y-axis L
+#define AK8963_HYH                    (0x06)   // Y-axis H
+#define AK8963_HZL                    (0x07)   // Z-axis L
+#define AK8963_HZH                    (0x08)   // Z-axis H
+#define AK8963_ST2                    (0x09)   // Data Status 2
+#define AK8963_CNTL                   (0x0A)   // Control
+#define AK8963_ASTC                   (0x0C)   // Self-test (Slave Address)
+#define AK8963_I2CDIS                 (0x0F)   // I2C Disable
+#define AK8963_ASAX                   (0x10)   // X-axis hassasiyet değeri
+#define AK8963_ASAY                   (0x11)   // Y-axis hassasiyet değeri
+#define AK8963_ASAZ                   (0x12)   // Z-axis hassasiyet değeri
+
 #define MPU9250_PART_IDENTIFIER       (0x71)
 
 /* Private enumerate/structure ---------------------------------------- */
@@ -199,6 +217,20 @@ base_status_t mpu9250_get_accel_calib_data(mpu9250_t *me)
   return BS_OK;
 }
 
+base_status_t mpu9250_get_mag_raw_data(mpu9250_t *me)
+{
+  uint8_t status;
+  uint8_t buffer[6];
+
+  CHECK_STATUS(m_mpu9250_read_reg(me, MPU9250_REG_ACCEL_XOUT_H, buffer, 6));
+
+  me->mag.raw_data.x = ((buffer[0] << 8) + buffer[1]);
+  me->mag.raw_data.y = ((buffer[2] << 8) + buffer[3]);
+  me->mag.raw_data.z = ((buffer[4] << 8) + buffer[5]);
+
+  return BS_OK;
+}
+
 base_status_t mpu9250_get_gyro_raw_data(mpu9250_t *me)
 {
   uint8_t status;
@@ -206,18 +238,11 @@ base_status_t mpu9250_get_gyro_raw_data(mpu9250_t *me)
 
   CHECK_STATUS(m_mpu9250_read_reg(me, MPU9250_REG_INT_STATUS, &status, 1));
 
-//  if ((status && 0x01))
-  {
-    CHECK_STATUS(m_mpu9250_read_reg(me, MPU9250_REG_GYRO_XOUT_H, buffer, 6));
+  CHECK_STATUS(m_mpu9250_read_reg(me, MPU9250_REG_GYRO_XOUT_H, buffer, 6));
 
-    me->gyro.raw_data.x = ((buffer[0] << 8) + buffer[1]);
-    me->gyro.raw_data.y = ((buffer[2] << 8) + buffer[3]);
-    me->gyro.raw_data.z = ((buffer[4] << 8) + buffer[5]);
-  }
-//  else
-  // {
-  //  return BS_ERROR;
-  // }
+  me->gyro.raw_data.x = ((buffer[0] << 8) + buffer[1]);
+  me->gyro.raw_data.y = ((buffer[2] << 8) + buffer[3]);
+  me->gyro.raw_data.z = ((buffer[4] << 8) + buffer[5]);
 
   return BS_OK;
 }

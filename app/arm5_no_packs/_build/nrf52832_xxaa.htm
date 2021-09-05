@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\_build\nrf52832_xxaa.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\_build\nrf52832_xxaa.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Sep 04 20:34:47 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Sep 05 16:43:35 2021
 <BR><P>
 <H3>Maximum Stack Usage =        748 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -965,7 +965,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> bsp_imu.o(i.bsp_imu_init)
 </UL>
-<P><STRONG><a name="[e7]"></a>bsp_imu_init</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, bsp_imu.o(i.bsp_imu_init))
+<P><STRONG><a name="[e7]"></a>bsp_imu_init</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, bsp_imu.o(i.bsp_imu_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 292<LI>Call Chain = bsp_imu_init &rArr; mpu9250_init &rArr; mpu9250_config &rArr; mpu9250_set_sample_rate_divider &rArr; m_mpu9250_write_reg &rArr; nrf_log_frontend_std_1 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr;  nrf_log_frontend_std_0 (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu9250_init
@@ -1125,7 +1125,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[11b]"></a>mpu9250_config</STRONG> (Thumb, 314 bytes, Stack size 24 bytes, mpu9250.o(i.mpu9250_config))
+<P><STRONG><a name="[11b]"></a>mpu9250_config</STRONG> (Thumb, 318 bytes, Stack size 24 bytes, mpu9250.o(i.mpu9250_config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 268<LI>Call Chain = mpu9250_config &rArr; mpu9250_set_sample_rate_divider &rArr; m_mpu9250_write_reg &rArr; nrf_log_frontend_std_1 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr;  nrf_log_frontend_std_0 (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_1
@@ -1163,7 +1163,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_gyro_accel_get
 </UL>
 
-<P><STRONG><a name="[e8]"></a>mpu9250_init</STRONG> (Thumb, 118 bytes, Stack size 24 bytes, mpu9250.o(i.mpu9250_init))
+<P><STRONG><a name="[e8]"></a>mpu9250_init</STRONG> (Thumb, 120 bytes, Stack size 24 bytes, mpu9250.o(i.mpu9250_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 292<LI>Call Chain = mpu9250_init &rArr; mpu9250_config &rArr; mpu9250_set_sample_rate_divider &rArr; m_mpu9250_write_reg &rArr; nrf_log_frontend_std_1 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr;  nrf_log_frontend_std_0 (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_1
@@ -1491,9 +1491,9 @@ Global Symbols
 <P><STRONG><a name="[10d]"></a>nrf_log_default_backends_init</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, nrf_log_default_backends.o(i.nrf_log_default_backends_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 268<LI>Call Chain = nrf_log_default_backends_init &rArr; nrf_log_backend_uart_init &rArr; uart_init &rArr; app_error_handler_bare &rArr; app_error_fault_handler &rArr; nrf_log_frontend_std_0 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr;  nrf_log_frontend_std_0 (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_backend_rtt_init
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_backend_uart_init
+<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_backend_uart_init
 <LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_backend_add
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_backend_rtt_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -2153,7 +2153,7 @@ Local Symbols
 <LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu9250_get_accel_raw_data
 </UL>
 
-<P><STRONG><a name="[10b]"></a>m_mpu9250_write_reg</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, mpu9250.o(i.m_mpu9250_write_reg))
+<P><STRONG><a name="[10b]"></a>m_mpu9250_write_reg</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, mpu9250.o(i.m_mpu9250_write_reg))
 <BR><BR>[Stack]<UL><LI>Max Depth = 228<LI>Call Chain = m_mpu9250_write_reg &rArr; nrf_log_frontend_std_1 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr;  nrf_log_frontend_std_0 (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_1
